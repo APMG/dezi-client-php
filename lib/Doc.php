@@ -123,7 +123,8 @@ class Doc {
      * @return string mime_type
      */
     public static function get_mime_type($file) {
-        $ext = strtolower(array_pop(explode('.', $file)));
+        $parts = explode('.', $file);
+        $ext = strtolower(array_pop($parts));
         //error_log("file=$file ext=$ext");
 
         if (array_key_exists($ext, self::$mime_types)) {

@@ -61,13 +61,15 @@ foreach ($response->results as $result ) {
 
     //diag_dump( $result );
     ok( $result->uri, "get result uri" );
-    diag(
-        sprintf(
-            "--\n uri: %s\n title: %s\n score: %s\n swishmime: %s\n",
-            $result->uri, $result->title, $result->score,
-            array_pop($result->get_field('swishmime'))
-        )
-    );
+    // $swishmime = $result->get_field('swishmime');
+    // $swishmime = ($swishmime) ? $swishmime : [];
+    // diag(
+    //     sprintf(
+    //         "--\n uri: %s\n title: %s\n score: %s\n swishmime: %s\n",
+    //         $result->uri, $result->title, $result->score,
+    //         array_pop($swishmime)
+    //     )
+    // );
 }
 
 // print stats
@@ -87,4 +89,4 @@ $docargs['content'] = $html;
 
 $doc = new \Dezi\Doc($docargs);
 ok( $resp = $client->index( $doc ), "index document with utf8 encoded url" );
-diag_dump( $resp );
+// diag_dump( $resp );
